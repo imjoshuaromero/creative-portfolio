@@ -58,6 +58,8 @@ function setupEventListeners() {
     // Modal close
     const closeModal = document.getElementById('close-modal');
     const imageModal = document.getElementById('image-modal');
+    const prevImageBtn = document.getElementById('prev-image');
+    const nextImageBtn = document.getElementById('next-image');
     
     closeModal.addEventListener('click', () => {
         imageModal.classList.add('hidden');
@@ -66,6 +68,34 @@ function setupEventListeners() {
     imageModal.addEventListener('click', (e) => {
         if (e.target === imageModal) {
             imageModal.classList.add('hidden');
+        }
+    });
+    
+    // Gallery navigation
+    if (prevImageBtn) {
+        prevImageBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navigateGallery('prev');
+        });
+    }
+    
+    if (nextImageBtn) {
+        nextImageBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navigateGallery('next');
+        });
+    }
+    
+    // Keyboard navigation for gallery
+    document.addEventListener('keydown', (e) => {
+        if (!imageModal.classList.contains('hidden')) {
+            if (e.key === 'ArrowLeft') {
+                navigateGallery('prev');
+            } else if (e.key === 'ArrowRight') {
+                navigateGallery('next');
+            } else if (e.key === 'Escape') {
+                imageModal.classList.add('hidden');
+            }
         }
     });
     
@@ -123,11 +153,16 @@ function createPortfolioItem(item) {
     div.className = 'masonry-item';
     div.setAttribute('data-category', item.category);
     
+    // Use first image as thumbnail, support both 'images' array and legacy 'image' property
+    const thumbnailImage = item.images ? item.images[0] : item.image;
+    const hasMultipleImages = item.images && item.images.length > 1;
+    
     div.innerHTML = `
-        <img src="${item.image}" alt="${item.title}" loading="lazy">
+        <img src="${thumbnailImage}" alt="${item.title}" loading="lazy">
         <div class="masonry-item-overlay">
             <div class="masonry-item-title">${item.title}</div>
             <div class="masonry-item-category">${item.category}</div>
+            ${hasMultipleImages ? '<div style="margin-top: 8px; font-size: 12px; opacity: 0.8;"><i class="fas fa-images"></i> ' + item.images.length + ' images</div>' : ''}
         </div>
     `;
     
@@ -140,17 +175,64 @@ function createPortfolioItem(item) {
 }
 
 // Open Image Modal
+let currentGallery = [];
+let currentImageIndex = 0;
+
 function openImageModal(item) {
     const modal = document.getElementById('image-modal');
     const modalImage = document.getElementById('modal-image');
     const modalTitle = document.getElementById('modal-title');
     const modalDescription = document.getElementById('modal-description');
     
-    modalImage.src = item.image;
+    // Support both new 'images' array and legacy 'image' property
+    currentGallery = item.images || [item.image];
+    currentImageIndex = 0;
+    
+    updateModalImage();
     modalTitle.textContent = item.title;
     modalDescription.textContent = item.description || '';
     
+    // Show/hide navigation arrows
+    updateNavigationButtons();
+    
     modal.classList.remove('hidden');
+}
+
+function updateModalImage() {
+    const modalImage = document.getElementById('modal-image');
+    const imageCounter = document.getElementById('image-counter');
+    
+    modalImage.src = currentGallery[currentImageIndex];
+    
+    // Update counter
+    if (currentGallery.length > 1) {
+        imageCounter.textContent = `${currentImageIndex + 1} / ${currentGallery.length}`;
+        imageCounter.style.display = 'block';
+    } else {
+        imageCounter.style.display = 'none';
+    }
+}
+
+function updateNavigationButtons() {
+    const prevBtn = document.getElementById('prev-image');
+    const nextBtn = document.getElementById('next-image');
+    
+    if (currentGallery.length > 1) {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+    } else {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+    }
+}
+
+function navigateGallery(direction) {
+    if (direction === 'prev') {
+        currentImageIndex = (currentImageIndex - 1 + currentGallery.length) % currentGallery.length;
+    } else {
+        currentImageIndex = (currentImageIndex + 1) % currentGallery.length;
+    }
+    updateModalImage();
 }
 
 // Handle Contact Form Submit

@@ -7,7 +7,7 @@ const portfolioData = [
         title: 'Brand Identity Design',
         category: 'print',
         description: 'Complete brand identity package',
-        image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop',
+        images: ['https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=1000&fit=crop'], // Can add multiple images in array
         dateAdded: '2025-01-01'
     },
     {
@@ -15,7 +15,7 @@ const portfolioData = [
         title: 'Social Media Graphics',
         category: 'pubmats',
         description: 'Engaging social media content',
-        image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=1000&fit=crop',
+        images: ['https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=1000&fit=crop'],
         dateAdded: '2025-01-02'
     },
     {
@@ -23,7 +23,7 @@ const portfolioData = [
         title: 'Magazine Layout',
         category: 'print',
         description: 'Editorial design for lifestyle magazine',
-        image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=1200&fit=crop',
+        images: ['https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=1200&fit=crop'],
         dateAdded: '2025-01-03'
     },
     {
@@ -31,7 +31,7 @@ const portfolioData = [
         title: 'Logo Design',
         category: 'apparel',
         description: 'Modern minimalist logo',
-        image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=800&fit=crop',
+        images: ['https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=800&fit=crop'],
         dateAdded: '2025-01-04'
     },
     {
@@ -39,7 +39,7 @@ const portfolioData = [
         title: 'Web Design',
         category: 'pubmats',
         description: 'Modern website interface',
-        image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=600&fit=crop',
+        images: ['https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=600&fit=crop'],
         dateAdded: '2025-01-05'
     },
     {
@@ -47,35 +47,42 @@ const portfolioData = [
         title: 'Business Cards',
         category: 'print',
         description: 'Professional business card design',
-        image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&h=1000&fit=crop',
+        images: ['https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&h=1000&fit=crop'],
         dateAdded: '2025-01-06'
     },
     {
-        id: 7,  // Increment the ID
+        id: 7,
         title: 'Esports MVP',
-        category: 'apparel',  // Choose: 'apparel', 'pubmats', 'print', or 'others'
+        category: 'apparel',
         description: 'Esports team branding and merchandise design',
-        image: 'designs/esports-mvp.png',  // Path to your image
-        dateAdded: '2025-01-07'  // Today's date
+        images: ['designs/esports-mvp.png'], // Example with one image
+        dateAdded: '2025-01-07'
     }
 ];
 
-// HOW TO ADD NEW DESIGNS:
-// 1. Add your image file to the assets folder (e.g., 'assets/my-new-design.jpg')
-// 2. Copy this template and add it to the array above:
+// HOW TO ADD NEW DESIGNS WITH MULTIPLE IMAGES:
+// For a project with multiple related images, just add them all to the images array:
 /*
     {
-        id: 8,  // Increment the ID
-        title: 'Your Design Title',
-        category: 'apparel',  // Choose: 'apparel', 'pubmats', 'print', or 'others'
-        description: 'Brief description of your design',
-        image: 'assets/my-new-design.jpg',  // Path to your image
-        dateAdded: '2025-12-21'  // Today's date
+        id: 8,
+        title: 'Product Packaging Design',
+        category: 'print',
+        description: 'Complete packaging design with multiple views',
+        images: [
+            'designs/packaging-front.jpg',
+            'designs/packaging-back.jpg',
+            'designs/packaging-side.jpg',
+            'designs/packaging-mockup.jpg'
+        ],
+        dateAdded: '2025-12-21'
     },
 */
 
+// The first image in the array will be shown as the thumbnail
+// Click on the portfolio item to view all images in a gallery with navigation arrows
+
 // HOW TO UPDATE:
-// - Just edit the title, description, or image path of any item above
+// - Just edit the title, description, or image paths of any item above
 // - Save the file and refresh your browser (or deploy to Netlify)
 
 // HOW TO DELETE:
