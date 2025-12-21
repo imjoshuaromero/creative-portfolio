@@ -157,9 +157,22 @@ function openImageModal(item) {
 function handleContactSubmit(e) {
     e.preventDefault();
     
-    // In a real application, you would send this to a server
-    showMessage('Thank you for your message! I will get back to you soon.', 'success');
-    e.target.reset();
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    // Submit to Netlify
+    fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+    })
+    .then(() => {
+        showMessage('Thank you for your message! I will get back to you soon.', 'success');
+        form.reset();
+    })
+    .catch(() => {
+        showMessage('Oops! Something went wrong. Please try again.', 'error');
+    });
 }
 
 // Show Message
