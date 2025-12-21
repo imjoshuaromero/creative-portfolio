@@ -4,87 +4,210 @@
 const portfolioData = [
     {
         id: 1,
-        title: 'Brand Identity Design',
-        category: 'print',
-        description: 'Complete brand identity package',
-        images: ['https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop', 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=1000&fit=crop'], // Can add multiple images in array
+        title: 'JERSEY Design',
+        category: 'apparel',
+        description: 'Department team jersey design',
+        images: ['designs/shirt-jersey.jpg', 'designs/sando-jersey.jpg', 'designs/warmer.png'], // Can add multiple images in array
         dateAdded: '2025-01-01'
     },
     {
         id: 2,
-        title: 'Social Media Graphics',
-        category: 'pubmats',
-        description: 'Engaging social media content',
-        images: ['https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=1000&fit=crop'],
+        title: 'Polo Shirt Design',
+        category: 'apparel',
+        description: 'Strand Shirt',
+        images: ['designs/polo-shirt1.png'],
         dateAdded: '2025-01-02'
     },
     {
         id: 3,
-        title: 'Magazine Layout',
-        category: 'print',
+        title: 'Polo Shirt Design',
+        category: 'apparel',
         description: 'Editorial design for lifestyle magazine',
-        images: ['https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=1200&fit=crop'],
+        images: ['designs/orgshirt.png', 'designs/orgshirt2.png'],
         dateAdded: '2025-01-03'
     },
     {
         id: 4,
-        title: 'Logo Design',
-        category: 'apparel',
-        description: 'Modern minimalist logo',
-        images: ['https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=800&fit=crop'],
+        title: 'Track Selection',
+        category: 'pubmats',
+        description: 'Track selection material',
+        images: ['designs/track-pubmat.jpg'],
         dateAdded: '2025-01-04'
     },
     {
         id: 5,
-        title: 'Web Design',
+        title: 'DP Blast',
         category: 'pubmats',
-        description: 'Modern website interface',
-        images: ['https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=600&fit=crop'],
+        description: 'Department promotional blast design',
+        images: ['designs/dp-blast.jpg'],
         dateAdded: '2025-01-05'
     },
     {
         id: 6,
-        title: 'Business Cards',
+        title: 'Magazine',
         category: 'print',
-        description: 'Professional business card design',
-        images: ['https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&h=1000&fit=crop'],
-        dateAdded: '2025-01-06'
+        description: 'Magazine Design Layout',
+        images: ['designs/magazine/cover.jpg', 'designs/magazine/back.jpg', 'designs/magazine/content1.jpg', 'designs/magazine/content2.jpg', 'designs/magazine/content3.jpg'],
     },
     {
         id: 7,
         title: 'Esports MVP',
-        category: 'apparel',
+        category: 'pubmats',
         description: 'Esports team branding and merchandise design',
         images: ['designs/esports-mvp.png'], // Example with one image
         dateAdded: '2025-01-07'
+    },
+    {
+        id: 8,
+        title: 'XMAS Party Poster',
+        category: 'pubmats',
+        description: 'XMAS Party event poster design',
+        images: ['designs/xmas-party-pubmat.jpg'],
+        dateAdded: '2025-01-08'
+    },
+    {
+        id: 9,
+        title: 'Teachers Day Poster',
+        category: 'pubmats',
+        description: 'Teachers Day event poster design',
+        images: ['designs/teachers-day.jpg'],
+        dateAdded: '2025-01-09'
+    },
+    {
+        id: 10,
+        title: 'DP Blast',
+        category: 'pubmats',
+        description: 'Sportsfest Department DP Blast design',
+        images: ['designs/intrams-dpblast.png'],
+        dateAdded: '2025-01-10'
+    },
+    {
+        id: 11,
+        title: 'Block Cover',
+        category: 'others',
+        description: 'Group Chat Photo Cover',
+        images: ['designs/block-cover.jpg'],
+        dateAdded: '2025-01-11'
+    },
+    {
+        id: 12,
+        title: 'Top Students Poster',
+        category: 'pubmats',
+        description: 'Event poster design for top students recognition',
+        images: ['designs/top-st1.jpg', 'designs/top-st2.jpg'],
+        dateAdded: '2025-01-12'
+    },
+    {
+        id: 13,
+        title: 'Badminton Tryouts Poster',
+        category: 'pubmats',
+        description: 'Event poster design for badminton tryouts',
+        images: ['designs/sports-tryouts/badminton.jpg'],
+        dateAdded: '2025-01-13'
+    },
+    {
+        id: 14,
+        title: 'Chess Tryouts Poster',
+        category: 'pubmats',
+        description: 'Event poster design for chess tryouts',
+        images: ['designs/sports-tryouts/chess.jpg'],
+        dateAdded: '2025-01-13'
+    },
+    {
+        id: 15,
+        title: 'Partylist Poster',
+        category: 'pubmats',
+        description: 'Event poster design for partylist elections',
+        images: ['designs/partylist/1.png', 'designs/partylist/2.png'],
+        dateAdded: '2025-01-13'
+    },
+    {
+        id: 16,
+        title: 'Product Poster Design',
+        category: 'print',
+        description: 'Product advertisement poster design',
+        images: ['designs/marketing-poster/1.png', 'designs/marketing-poster/2.png'],
+        dateAdded: '2025-01-13'
+    },
+    {
+        id: 17,
+        title: 'Infographic Design',
+        category: 'print',
+        description: 'Informative infographic design',
+        images: ['designs/infographics/1.jpg', 'designs/infographics/4.jpg', 'designs/infographics/5.jpg'],
+        dateAdded: '2025-01-13'
+    },
+    {
+        id: 18,
+        title: 'Brochure Design',
+        category: 'print',
+        description: 'Promotional brochure design',
+        images: ['designs/brochure/BACK.jpg', 'designs/brochure/FRONT.jpg'],
+        dateAdded: '2025-01-13'
+    },
+    {
+        id: 19,
+        title: 'Debut Invitation Design',
+        category: 'print',
+        description: 'Elegant debut invitation card design',
+        images: ['designs/debut-invi1.jpg', 'designs/debut-invi2.jpg'],
+        dateAdded: '2025-01-13'
+    },
+    {
+        id: 20,
+        title: 'Top Students Poster',
+        category: 'pubmats',
+        description: 'Event poster design for top students recognition',
+        images: ['designs/top-students-pubmat/1.jpg', 'designs/top-students-pubmat/CUDALA.jpg'],
+        dateAdded: '2025-01-13'
+    },
+    {
+        id: 21,
+        title: 'Teaser Countdown Design',
+        category: 'pubmats',
+        description: 'Event teaser countdown design',
+        images: ['designs/1DAY.png'],
+        dateAdded: '2025-01-13'
+    },
+    {
+        id: 22,
+        title: 'Tarpaulin Designs',
+        category: 'others',
+        description: 'Event tarpaulin designs for various occasions',
+        images: ['designs/birthday-tarp1.jpg', 'designs/christening-tarp1.jpg'],
+        dateAdded: '2025-01-13'
+    },
+    {
+        id: 23,
+        title: 'Officers Posting Design',
+        category: 'pubmats',
+        description: 'Officers posting announcement design',
+        images: ['designs/officers-posting/MAIN.jpg', 'designs/officers-posting/TEMPLATE.jpg'],
+        dateAdded: '2025-01-13'
+    },
+    {
+        id: 24,
+        title: 'Birthday Poster Design',
+        category: 'pubmats',
+        description: 'Birthday event poster design',
+        images: ['designs/JOSH.png'],
+        dateAdded: '2025-01-13'
+    },
+    {
+        id: 25,
+        title: 'FCUP Event Poster',
+        category: 'pubmats',
+        description: 'Event poster design for FCUP',
+        images: ['designs/fcup-pubmat.jpg'],
+        dateAdded: '2025-01-13'
+    },
+    {
+        id: 26,
+        title: 'Graduates Poster Design',
+        category: 'pubmats',
+        description: 'Graduates recognition poster design',
+        images: ['designs/graduates/33.jpg', 'designs/graduates/34.jpg', 'designs/graduates/35.jpg'],
+        dateAdded: '2025-01-13'
     }
 ];
 
-// HOW TO ADD NEW DESIGNS WITH MULTIPLE IMAGES:
-// For a project with multiple related images, just add them all to the images array:
-/*
-    {
-        id: 8,
-        title: 'Product Packaging Design',
-        category: 'print',
-        description: 'Complete packaging design with multiple views',
-        images: [
-            'designs/packaging-front.jpg',
-            'designs/packaging-back.jpg',
-            'designs/packaging-side.jpg',
-            'designs/packaging-mockup.jpg'
-        ],
-        dateAdded: '2025-12-21'
-    },
-*/
-
-// The first image in the array will be shown as the thumbnail
-// Click on the portfolio item to view all images in a gallery with navigation arrows
-
-// HOW TO UPDATE:
-// - Just edit the title, description, or image paths of any item above
-// - Save the file and refresh your browser (or deploy to Netlify)
-
-// HOW TO DELETE:
-// - Simply remove the entire object {} from the array
-// - Make sure to keep proper comma separation between items

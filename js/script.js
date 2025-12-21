@@ -2,6 +2,9 @@
 
 // Global Variables
 let portfolioItems = [];
+let currentFilter = 'all';
+let itemsPerPage = 9; // Show 9 items initially
+let currentPage = 1;
 
 // Initialize the website
 document.addEventListener('DOMContentLoaded', function() {
@@ -47,9 +50,20 @@ function setupEventListeners() {
             this.classList.add('active');
             // Filter portfolio
             const filter = this.getAttribute('data-filter');
+            currentFilter = filter;
+            currentPage = 1; // Reset to first page
             renderPortfolio(filter);
         });
     });
+    
+    // Load More button
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+            currentPage++;
+            renderPortfolio(currentFilter, true); // true means append, not replace
+        });
+    }
     
     // Contact form
     const contactForm = document.getElementById('contact-form');
@@ -126,9 +140,15 @@ function loadPortfolioItems() {
 }
 
 // Render Portfolio with Filter
-function renderPortfolio(filter) {
+function renderPortfolio(filter, append = false) {
     const grid = document.getElementById('portfolio-grid');
-    grid.innerHTML = '';
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const loadMoreContainer = document.getElementById('load-more-container');
+    
+    if (!append) {
+        grid.innerHTML = '';
+        currentPage = 1;
+    }
     
     // Filter items
     const filteredItems = filter === 'all' 
@@ -137,14 +157,32 @@ function renderPortfolio(filter) {
     
     if (filteredItems.length === 0) {
         grid.innerHTML = '<div class="col-span-full text-center text-gray-400 py-12">No designs found in this category.</div>';
+        if (loadMoreContainer) loadMoreContainer.style.display = 'none';
         return;
     }
     
+    // Calculate items to show
+    const startIndex = append ? (currentPage - 1) * itemsPerPage : 0;
+    const endIndex = currentPage * itemsPerPage;
+    const itemsToShow = filteredItems.slice(startIndex, endIndex);
+    
     // Render items
-    filteredItems.forEach(item => {
+    itemsToShow.forEach(item => {
         const itemElement = createPortfolioItem(item);
         grid.appendChild(itemElement);
     });
+    
+    // Show/hide Load More button
+    if (loadMoreContainer) {
+        if (endIndex >= filteredItems.length) {
+            loadMoreContainer.style.display = 'none';
+        } else {
+            loadMoreContainer.style.display = 'flex';
+            // Update button text with remaining items
+            const remaining = filteredItems.length - endIndex;
+            loadMoreBtn.innerHTML = `<i class="fas fa-plus-circle mr-2"></i> Load More (${remaining} remaining)`;
+        }
+    }
 }
 
 // Create Portfolio Item Element
