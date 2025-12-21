@@ -23,7 +23,7 @@ const portfolioData = [
         title: 'Polo Shirt Design',
         category: 'apparel',
         description: 'Editorial design for lifestyle magazine',
-        images: ['designs/orgshirt.png', 'designs/orgshirt2.png'],
+        images: ['designs/orgshirt.png', 'designs/orgshirt2.jpg'],
         dateAdded: '2025-01-03'
     },
     {
